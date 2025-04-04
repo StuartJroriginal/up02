@@ -51,4 +51,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    
+    public function schedules()
+    {
+        return $this->belongsToMany(Schedule::class, 'schedule_user')->withPivot('id');
+    }
 }
